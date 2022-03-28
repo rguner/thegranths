@@ -11,6 +11,22 @@ public class Application {
             executors.execute(() -> userBucketCreator.accessApplication(1));
 
         }
+
+        sleep();
+
+        for(int i=0;i<12;i++){
+            executors.execute(() -> userBucketCreator.accessApplication(1));
+
+        }
+
         executors.shutdown();
+    }
+
+    private static void sleep() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
